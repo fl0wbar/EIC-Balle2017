@@ -1,0 +1,26 @@
+
+// For script options
+python eeicballe17.py -h
+
+// Training
+
+python eeicballe17.py -v --train_glob="./datasets/CLIC/professional/train/*.png" --checkpoint_dir=./models/balle17CLIC train
+
+python eeicballe17.py -v --train_glob="./datasets/BSDS500/*.jpg" --checkpoint_dir=./models/balle17BSDS500 train
+
+// Tensorboard logging
+
+tensorboard --logdir=./models/balle17CLIC --host=localhost --port=6006
+
+tensorboard --logdir=./models/balle17BSDS500 --host=localhost --port=6006
+
+// Compressing and Decompressing using the trained model
+
+python eeicballe17.py --verbose --checkpoint_dir=./models/balle17CLIC compress ./tests/groundtruth/kodak/kodim01.png ./tests/reconCLIC/epoch30684/kodim01.tfic
+
+python eeicballe17.py --verbose --checkpoint_dir=./models/balle17BSDS500 compress ./tests/groundtruth/kodak/kodim01.png ./tests/reconBSDS500/kodim01.bin
+
+
+python eeicballe17.py --verbose --checkpoint_dir=./models/balle17CLIC decompress ./tests/reconCLIC/epoch30684/kodim01.tfic ./tests/reconCLIC/epoch30684/kodim01_recon.png
+
+python eeicballe17.py --verbose --checkpoint_dir=./models/balle17BSDS500 decompress ./tests/reconBSDS500/kodim01.bin ./tests/reconBSDS500/kodim01_recon.png

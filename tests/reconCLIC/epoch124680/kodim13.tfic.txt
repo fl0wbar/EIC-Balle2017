@@ -1,0 +1,6 @@
+Mean squared error: 164.4188
+PSNR (dB): 25.97
+Multiscale SSIM: 0.9592
+Multiscale SSIM (dB): 13.89
+Information content in bpp: 0.9481
+Actual bits per pixel: 0.9509

@@ -1,0 +1,8 @@
+// At step 30684
+// for kodim15.png
+Mean squared error: 57.4174
+PSNR (dB): 30.54
+Multiscale SSIM: 0.9564
+Multiscale SSIM (dB): 13.60
+Information content in bpp: 0.3852
+Actual bits per pixel: 0.3866
